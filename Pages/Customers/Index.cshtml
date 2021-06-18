@@ -1,0 +1,82 @@
+﻿@page
+@model RasorPagesCustomers.Pages.Customers.CustomersModel
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+
+<h1>Customers</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название организации</th><th>УНП</th><th>Расчётный счёт</th><th>Номер телефона</th><th></th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Customer[0].City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Account1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Region)
+                </th>*@
+            
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Fax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].File)
+                </th>*@
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customer)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameCompany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Account1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Region)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Fax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.File)
+                    </td>*@
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
